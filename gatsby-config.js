@@ -1,10 +1,14 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require('dotenv').config()
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        shopName: process.env.SHOP_NAME,
+        accessToken: process.env.ACCESS_TOKEN,
+      },
+    },
+  ],
 }
